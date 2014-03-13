@@ -54,12 +54,12 @@
     if ([event isValueOnly]) return [[ITCEvent alloc] initWithValue:event.value];
     if (identifier.left && [identifier.left isEqual:[ITCID ID1]]) {
         ITCEvent *eventRight = [ITCStamp fill:identifier.right event:event.right];
-        int max = MAX([event.left max], [eventRight min]);
+        NSInteger max = MAX([event.left max], [eventRight min]);
         return [[[ITCEvent alloc] initWithValue:event.value left:[[ITCEvent alloc] initWithValue:max] right:eventRight] normalize];
     }
     if (identifier.right && [identifier.right isEqual:[ITCID ID1]]) {
         ITCEvent *eventLeft = [ITCStamp fill:identifier.left event:event.left];
-        int max = MAX([event.right max], [eventLeft min]);
+        NSInteger max = MAX([event.right max], [eventLeft min]);
         return [[ITCEvent alloc] initWithValue:event.value left:eventLeft right:[[ITCEvent alloc] initWithValue:max]];
     }
     return [[ITCEvent alloc] initWithValue:event.value left:[ITCStamp fill:identifier.left event:event.left] right:[ITCStamp fill:identifier.right event:event.right]];
