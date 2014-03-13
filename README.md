@@ -1,4 +1,4 @@
 itc4objc
 ========
 
-Interval Tree Clock implementation for objective c
+Ported itc4j objective-c implementation of Interval Tree Clocks.
